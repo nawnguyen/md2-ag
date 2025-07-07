@@ -1,8 +1,8 @@
-package ss1;
+package ss2.baiTap1;
 
 import java.util.Scanner;
 
-public class UngDungMayTinhDonGian {
+public class TinhTongCacUocSo {
     public static void main(String[] args) {
         int soCanTimUocSo;
         Scanner sc = new Scanner(System.in);
