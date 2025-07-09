@@ -4,25 +4,19 @@ import java.util.Scanner;
 
 public class AvgOddNumbArr {
     public static void main(String[] args) {
-        int size;
         int[] array;
-
         Scanner scanner = new Scanner(System.in);
-        do {
-            System.out.println("enter the size of the array:");
-            size = scanner.nextInt();
-            if (size > 20) {
-                System.out.println("Size does not exceed 20");
-            }
-        } while (size > 20);
 
+        int size = EnterPositiveInteger(scanner);
         array = new int[size];
-        int i = 0;
-        while (i < array.length) {
-            System.out.print("Enter the value " + (i + 1) + " : ");
+
+        int i;
+        for (i = 0; i < array.length; i++) {
+            System.out.println("Enter the value " + (i + 1) + " : ");
             array[i] = scanner.nextInt();
-            i++;
         }
+
+
         System.out.print("Elements in array: ");
         for (int e : array) {
             System.out.print(e + " ");
@@ -38,8 +32,20 @@ public class AvgOddNumbArr {
         }
         if (count > 0) {
             System.out.println("\nAvg at odd location: " + (double) sum / count);
-        }else {
+        } else {
             System.out.println("There is no number at odd location");
         }
+    }
+
+    public static int EnterPositiveInteger(Scanner sc) {
+        int integer;
+        do {
+            System.out.println("enter the size of the array:");
+            integer = sc.nextInt();
+            if (integer > 20) {
+                System.out.println("Size does not exceed 20");
+            }
+        } while (integer > 20);
+        return integer;
     }
 }
