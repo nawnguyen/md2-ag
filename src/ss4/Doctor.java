@@ -18,12 +18,14 @@ public class Doctor {
     }
 
     public void showInfomation() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Address: " + address);
-        System.out.println("Email: " + email);
-        System.out.println("Phone: " + phone);
-        System.out.println("WorkingPosition: " + workingPosition);
+        String info = """
+                Name: %s
+                Address: %s
+                Email: %s
+                Phone: %s
+                WorkingPosition: %s
+                """.formatted(name, address, email, phone, workingPosition);
+        System.out.println(info);
     }
 }
 
