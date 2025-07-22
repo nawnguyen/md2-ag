@@ -8,11 +8,13 @@ import java.util.List;
 
 public class FruitService {
     private FruitRepository fruitRepository = new FruitRepository();
+
     public List<Fruit> getAllFruits() {
         return fruitRepository.getFruits();
     }
 
-    public void addFruit(String nameFruit, String typeFruit, LocalDate manufacturingDate, LocalDate expiryDate, String originFruit, int price) {
-        fruitRepository.addFruit(new Fruit(nameFruit, typeFruit, LocalDate.now(), LocalDate.now().plusDays(10), originFruit, price));
+
+    public void addFruit(Fruit fruit) {
+        fruitRepository.addFruit(fruit);
     }
 }

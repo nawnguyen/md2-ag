@@ -1,7 +1,10 @@
 package ss9.view;
 
 import ss9.controller.FruitController;
+import ss9.model.Fruit;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 public class FruitView {
@@ -20,13 +23,24 @@ public class FruitView {
             choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
-                case 1 -> controller.showAllFruits();
+                case 1 -> showFruits();
                 case 2 -> addNewFruit();
                 case 0 -> System.out.println("Đã thoát chương trình.");
                 default -> System.out.println("Lựa chọn không hợp lệ!");
             }
 
         } while (choice != 0);
+    }
+
+    private void showFruits() {
+        List<Fruit> fruits = controller.getAllFruit();
+        if (fruits.isEmpty()) {
+            System.out.println("Danh sách trống !");
+        } else {
+            for (Fruit fruit : fruits) {
+                System.out.println(fruit);
+            }
+        }
     }
 
     private void addNewFruit() {
@@ -42,7 +56,8 @@ public class FruitView {
         System.out.print("Giá: ");
         int price = Integer.parseInt(scanner.nextLine());
 
-        controller.addFruit(name, type, origin, price);
+        Fruit fruit = new Fruit(name, type, LocalDate.now(), LocalDate.now().plusDays(10), origin, price);
+        controller.addFruit(fruit);
     }
 }
 
