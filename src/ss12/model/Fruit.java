@@ -1,4 +1,4 @@
-package ss11.model;
+package ss12.model;
 
 public class Fruit {
     private String id;

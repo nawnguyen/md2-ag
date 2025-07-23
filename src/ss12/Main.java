@@ -1,6 +1,6 @@
-package ss9;
+package ss12;
 
-import ss9.view.FruitView;
+import ss12.view.FruitView;
 
 public class Main {
     public static void main(String[] args) {

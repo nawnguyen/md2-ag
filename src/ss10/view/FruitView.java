@@ -1,7 +1,7 @@
-package ss9.view;
+package ss10.view;
 
-import ss9.controller.FruitController;
-import ss9.model.Fruit;
+import ss10.controller.FruitController;
+import ss10.model.Fruit;
 
 import java.time.LocalDate;
 import java.util.List;

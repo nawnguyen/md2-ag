@@ -1,13 +1,12 @@
-package ss11.view;
+package ss12.view;
 
-import ss11.model.Fruit;
-import ss11.service.FruitService;
-
+import ss12.controller.FruitController;
+import ss12.model.Fruit;
 import java.util.Map;
 import java.util.Scanner;
 
 public class FruitView {
-    private FruitService service = new FruitService();
+    private FruitController controller = new FruitController();
     private Scanner scanner = new Scanner(System.in);
 
     public void displayMenu() {
@@ -24,26 +23,26 @@ public class FruitView {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    showByKeySet(); 
+                    showByKeySet();
                     break;
                 case 2:
                     showByEntrySet();
                     break;
                 case 3:
                     Fruit fruit = inputFruit();
-                    service.save(fruit); 
+                    controller.save(fruit);
                     break;
                 case 4:
                     System.out.print("Nhập mã trái cây cần xóa: ");
                     String idDelete = scanner.nextLine();
-                    service.delete(idDelete);
+                    controller.delete(idDelete);
                     break;
                 case 5:
                     System.out.print("Nhập mã trái cây cần sửa: ");
                     String idUpdate = scanner.nextLine();
                     Fruit fruitUpdate = inputFruit();
                     fruitUpdate.setId(idUpdate);
-                    service.save(fruitUpdate);
+                    controller.save(fruitUpdate);
                     break;
                 case 0:
                     return;
@@ -68,13 +67,13 @@ public class FruitView {
     }
 
     private void showByKeySet() {
-        for (String key : service.findAll().keySet()) { 
-            System.out.println(service.findAll().get(key));
+        for (String key : controller.findAll().keySet()) {
+            System.out.println(controller.findAll().get(key));
         }
     }
 
     private void showByEntrySet() {
-        for (Map.Entry<String, Fruit> entry : service.findAll().entrySet()) { 
+        for (Map.Entry<String, Fruit> entry : controller.findAll().entrySet()) {
             System.out.println(entry.getValue());
         }
     }

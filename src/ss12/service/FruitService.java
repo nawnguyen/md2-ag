@@ -1,7 +1,7 @@
-package ss11.service;
+package ss12.service;
 
-import ss11.model.Fruit;
-import ss11.repository.FruitRepository;
+import ss12.model.Fruit;
+import ss12.repository.FruitRepository;
 
 import java.util.Map;
 

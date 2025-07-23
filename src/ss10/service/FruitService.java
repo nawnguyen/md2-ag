@@ -1,9 +1,8 @@
-package ss9.service;
+package ss10.service;
 
-import ss9.model.Fruit;
-import ss9.repository.FruitRepository;
+import ss10.model.Fruit;
+import ss10.repository.FruitRepository;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class FruitService {

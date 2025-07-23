@@ -1,4 +1,4 @@
-package ss9.model;
+package ss10.model;
 
 import java.time.LocalDate;
 
@@ -55,8 +55,7 @@ public class Fruit {
         return originFruit;
     }
 
-    public void setOriginFruit(String originFruit) {
-        this.originFruit = originFruit;
+    public void setOriginFruit(String originFruit) { this.originFruit = originFruit;
     }
 
     public int getPrice() {

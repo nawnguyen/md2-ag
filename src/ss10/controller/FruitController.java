@@ -1,11 +1,11 @@
-package ss9.controller;
-import ss9.model.Fruit;
-import ss9.service.FruitService;
+package ss10.controller;
+import ss10.model.Fruit;
+import ss10.service.FruitService;
 import java.util.List;
 
 
 public class FruitController {
-    private FruitService fruitService = new FruitService();
+    private final FruitService fruitService = new FruitService();
 
 
     public List<Fruit> getAllFruit(){
