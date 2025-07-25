@@ -1,13 +1,13 @@
 package ss14.model;
 
 public class Expense {
-    private String id;
+    private int id;
     private String name;
     private String date;
     private double amount;
     private String note;
 
-    public Expense(String id, String name, String date, double amount, String note) {
+    public Expense(int id, String name, String date, double amount, String note) {
         this.id = id;
         this.name = name;
         this.date = date;
@@ -15,11 +15,11 @@ public class Expense {
         this.note = note;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

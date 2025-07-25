@@ -1,5 +1,8 @@
 package ss14.view;
 
+import ss14.common.IdNotFoundException;
+import ss14.common.Input;
+import ss14.common.UniqueIdException;
 import ss14.controller.ExpenseController;
 import ss14.model.Expense;
 
@@ -66,7 +69,16 @@ public class ExpenseView {
 
     private void add() {
         System.out.print("Nhập mã: ");
-        String id = scanner.nextLine();
+        int id = Integer.parseInt(scanner.nextLine());
+
+        try {
+            if (controller.findById(id) != null) {
+                throw new UniqueIdException("Mã đã tồn tại !");
+            }
+        } catch (UniqueIdException e) {
+            System.out.println(e.getMessage());
+        }
+
         System.out.print("Nhập tên: ");
         String name = scanner.nextLine();
         System.out.print("Nhập ngày: ");
@@ -83,14 +95,19 @@ public class ExpenseView {
 
     private void delete() {
         System.out.print("Nhập mã cần xóa: ");
-        String id = scanner.nextLine();
-        controller.deleteExpense(id);
-        System.out.println("Đã xóa !");
+        int id = Input.InputInteger();
+        try {
+
+            controller.deleteExpense(id);
+            System.out.println("Đã xóa !");
+        } catch (IdNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void update() {
         System.out.print("Nhập mã cần sửa: ");
-        String id = scanner.nextLine();
+        int id = Input.InputInteger();
 
         System.out.print("Tên mới: ");
         String name = scanner.nextLine();
@@ -108,7 +125,7 @@ public class ExpenseView {
 
     private void findById() {
         System.out.print("Nhập mã cần tìm: ");
-        String id = scanner.nextLine();
+        int id = Input.InputInteger();
         Expense e = controller.findById(id);
         if (e != null) System.out.println(e);
         else System.out.println("Không tìm thấy !");

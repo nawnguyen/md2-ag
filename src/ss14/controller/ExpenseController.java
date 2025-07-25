@@ -1,5 +1,6 @@
 package ss14.controller;
 
+import ss14.common.IdNotFoundException;
 import ss14.model.Expense;
 import ss14.service.ExpenseService;
 import ss14.service.IExpenseService;
@@ -17,15 +18,15 @@ public class ExpenseController {
         service.addExpense(expense);
     }
 
-    public void deleteExpense(String id) {
+    public void deleteExpense(int id) throws IdNotFoundException {
         service.deleteExpense(id);
     }
 
-    public void updateExpense(String id, Expense expense) {
+    public void updateExpense(int id, Expense expense) {
         service.updateExpense(id, expense);
     }
 
-    public Expense findById(String id) {
+    public Expense findById(int id) {
         return service.findById(id);
     }
 

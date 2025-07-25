@@ -1,5 +1,6 @@
 package ss14.service;
 
+import ss14.common.IdNotFoundException;
 import ss14.model.Expense;
 
 import java.util.List;
@@ -9,11 +10,11 @@ public interface IExpenseService {
 
     void addExpense(Expense expense);
 
-    void deleteExpense(String id);
+    void deleteExpense(int id) throws IdNotFoundException;
 
-    void updateExpense(String id, Expense expense);
+    void updateExpense(int id, Expense expense);
 
-    Expense findById(String id);
+    Expense findById(int id);
 
     List<Expense> searchByName(String name);
 

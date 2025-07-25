@@ -9,11 +9,11 @@ public class ExpenseRepository {
     private static List<Expense> expenses = new ArrayList<>();
 
     static {
-        expenses.add(new Expense("1", "Ăn sáng", "2025-07-01", 30000, "Phở tái nạm"));
-        expenses.add(new Expense("2", "Cafe", "2025-07-02", 20000, "Cafe đen"));
-        expenses.add(new Expense("3", "Xăng xe", "2025-07-03", 50000, "Đổ đầy bình"));
-        expenses.add(new Expense("4", "Mua sách", "2025-07-04", 100000, "Bài giảng cuối cùng"));
-        expenses.add(new Expense("5", "Ăn trưa", "2025-07-05", 40000, "Cơm gà"));
+        expenses.add(new Expense(1, "Ăn sáng", "2025-07-01", 30000, "Phở tái nạm"));
+        expenses.add(new Expense(2, "Cafe", "2025-07-02", 20000, "Cafe đen"));
+        expenses.add(new Expense(3, "Xăng xe", "2025-07-03", 50000, "Đổ đầy bình"));
+        expenses.add(new Expense(4, "Mua sách", "2025-07-04", 100000, "Bài giảng cuối cùng"));
+        expenses.add(new Expense(5, "Ăn trưa", "2025-07-05", 40000, "Cơm gà"));
     }
 
     public List<Expense> getAll() {
@@ -24,22 +24,22 @@ public class ExpenseRepository {
         expenses.add(expense);
     }
 
-    public void delete(String id) {
-        expenses.removeIf(e -> e.getId().equals(id));
+    public void delete(int id) {
+        expenses.removeIf(e -> e.getId() == id);
     }
 
-    public void update(String id, Expense newExpense) {
+    public void update(int id, Expense newExpense) {
         for (int i = 0; i < expenses.size(); i++) {
-            if (expenses.get(i).getId().equals(id)) {
+            if (expenses.get(i).getId() == id) {
                 expenses.set(i, newExpense);
                 return;
             }
         }
     }
 
-    public Expense findById(String id) {
+    public Expense findById(int id) {
         for (Expense e : expenses) {
-            if (e.getId().equals(id)) {
+            if (e.getId() == id) {
                 return e;
             }
         }

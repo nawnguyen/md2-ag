@@ -1,5 +1,6 @@
 package ss14.service;
 
+import ss14.common.IdNotFoundException;
 import ss14.model.Expense;
 import ss14.repository.ExpenseRepository;
 
@@ -14,19 +15,27 @@ public class ExpenseService implements IExpenseService {
         return repo.getAll();
     }
 
+    @Override
     public void addExpense(Expense expense) {
+        if (repo.findById(expense.getId()) != null) {
+            throw new IllegalArgumentException("Mã chi tiêu đã tồn tại !"+ expense.getId());
+        }
         repo.add(expense);
     }
 
-    public void deleteExpense(String id) {
+    @Override
+    public void deleteExpense(int id) throws IdNotFoundException {
+        if (repo.findById(id) == null) {
+            throw new IdNotFoundException("Không tìm thấy mã muốn xoá !");
+        }
         repo.delete(id);
     }
 
-    public void updateExpense(String id, Expense expense) {
+    public void updateExpense(int id, Expense expense) {
         repo.update(id, expense);
     }
 
-    public Expense findById(String id) {
+    public Expense findById(int id) {
         return repo.findById(id);
     }
 
