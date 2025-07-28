@@ -1,6 +1,8 @@
 package ss14.model;
 
-public class Expense {
+import java.io.Serializable;
+
+public class Expense implements Serializable {
     private int id;
     private String name;
     private String date;
