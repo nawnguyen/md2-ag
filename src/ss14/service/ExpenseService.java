@@ -18,7 +18,7 @@ public class ExpenseService implements IExpenseService {
     @Override
     public void addExpense(Expense expense) {
         if (repo.findById(expense.getId()) != null) {
-            throw new IllegalArgumentException("Mã chi tiêu đã tồn tại !"+ expense.getId());
+            throw new IllegalArgumentException("Mã chi tiêu đã tồn tại !" + expense.getId());
         }
         repo.add(expense);
     }
