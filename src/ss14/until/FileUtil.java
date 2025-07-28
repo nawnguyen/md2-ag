@@ -16,8 +16,10 @@ public class FileUtil {
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
             list = (List<Expense>) ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Lỗi khi đọc file: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("Không tìm thấy lớp khi đọc dữ liệu từ file !");
         }
         return list;
     }
@@ -26,7 +28,7 @@ public class FileUtil {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_PATH))) {
             oos.writeObject(list);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Lỗi khi ghi file: " + e.getMessage());
         }
     }
 }
