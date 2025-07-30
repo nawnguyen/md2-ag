@@ -69,7 +69,7 @@ public class ExpenseView {
 
     private void add() {
         System.out.print("Nhập mã: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = Input.InputInteger();
 
         try {
             if (controller.findById(id) != null) {
